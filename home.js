@@ -65,7 +65,13 @@ function scrollActive(){
     sections.forEach(current=>{
         const sectionHeight = current.offsetHeight
         const sectionTop = current.offsetTop - 50;
-        sectionId = current.getAttribute('id')
+        const sectionId = current.getAttribute('id')
+        if(this.scrollY <= 80){
+            document.getElementById('home-nav-link').classList.add('active-link')
+        }
+        else{
+            document.getElementById('home-nav-link').classList.remove('active-link')
+        }
 
         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
             document.querySelector('.nav__menu a[href*='+ sectionId + ']').classList.add('active-link')   
@@ -125,4 +131,3 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
-
