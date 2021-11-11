@@ -57,6 +57,7 @@ let swiper = new Swiper(".projects__container", {
     keyboard: true,
   });
 
+
 // scroll active
 const sections = document.querySelectorAll('section[id]')
 function scrollActive(){
