@@ -57,33 +57,32 @@ let swiper = new Swiper(".projects__container", {
     keyboard: true,
   });
 
-
 // scroll active
 const sections = document.querySelectorAll('section[id]')
 function scrollActive(){
     const scrollY = window.pageYOffset
-
-    sections.forEach(current=>{
+    for (let index = 1; index < sections.length; index++) {
+        const current = sections[index]
         const sectionHeight = current.offsetHeight
         const sectionTop = current.offsetTop - 50;
-        const sectionId = current.getAttribute('id')
         if(this.scrollY <= 80){
             document.getElementById('home-nav-link').classList.add('active-link')
         }
         else{
             document.getElementById('home-nav-link').classList.remove('active-link')
         }
-
         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav__menu a[href*='+ sectionId + ']').classList.add('active-link')   
+            document.querySelector('.nav__item a[href*='+ current.getAttribute('id') + ']').classList.add('active-link')   
         }
         else{
-            document.querySelector('.nav__menu a[href*='+ sectionId + ']').classList.remove('active-link')
+            document.querySelector('.nav__item a[href*='+ current.getAttribute('id') + ']').classList.remove('active-link')
         }
-    })
+        
+    }
 }
 
 window.addEventListener('scroll', scrollActive)
+
 
 // backgroundheader
 function scrollHeader(){
@@ -92,6 +91,7 @@ function scrollHeader(){
 
 }
 window.addEventListener('scroll', scrollHeader)
+
 
 // show scroll
 function scrollTop(){

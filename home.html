@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@6/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script src="email.js"></script>
     <title>portfolio</title>
 </head>
 
@@ -429,6 +430,22 @@
                     </div>
 
                     <div class="project__content grid swiper-slide">
+                        <img src="img/growspons.jpg" alt="" class="project__img">
+
+                        <div class="project__data">
+                            <h3 class="project__title">Growspons</h3>
+                            <p class="project__description">
+                                Common platform for both Influencers as well Companies for getting n providing sponsorships.
+                            </p>
+                            <a target="_blank"
+                                href="https://github.com/bhaveshd17/influencer-sponsors"
+                                class="button button--flex button--small project__button">
+                                Demo
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project__content grid swiper-slide">
                         <img src="img/ytadview.png" alt="" class="project__img">
 
                         <div class="project__data">
@@ -495,26 +512,26 @@
                 <form action="" class="contact__form grid">
                     <div class="contact__inputs grid">
                         <div class="contact__content">
-                            <label for="" class="contact__label">Name</label>
-                            <input type="text" class="contact__input">
+                            <label for="name" class="contact__label">Name</label>
+                            <input type="text" id="name" class="contact__input" required>
                         </div>
 
                         <div class="contact__content">
-                            <label for="" class="contact__label">Email</label>
-                            <input type="email" class="contact__input">
+                            <label for="email" class="contact__label">Email</label>
+                            <input type="email" id="email" class="contact__input" required>
                         </div>
                     </div>
 
                     <div class="contact__content">
-                        <label for="" class="contact__label">Message</label>
-                        <textarea name="" id="" cols="0" rows="7" class="contact__input"></textarea>
+                        <label for="msg" class="contact__label">Message</label>
+                        <textarea name="msg" id="msg" cols="0" rows="7" class="contact__input" required></textarea>
                     </div>
 
                     <div>
-                        <a href=#"" class="button button--flex">
+                        <button type="button" onclick="sendEmail()" class="button button--flex" style="border: none; cursor: pointer;">
                             Send Message
                             <i class="uil uil-message button__icon"></i>
-                        </a>
+                        </button>
                     </div>
                 </form>
             </div>
@@ -561,7 +578,7 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
         particlesJS.load('particles-js', 'particles.json', function () {
-            console.log('callback - particles.js config loaded');
+            console.log('');
         });
     </script>
 
