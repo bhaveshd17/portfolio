@@ -1,0 +1,36 @@
+<section class="projects section" id="projects">
+    <h2 class="section__title">Projects</h2>
+    <span class="section__subtitle">Most Recent Projects</span>
+
+    <div class="projects__container container swiper-container">
+        <div class="swiper-wrapper">
+
+            {% for project in projects %}
+            <div class="project__content grid swiper-slide">
+                <img src="{{project.images.url}}" alt="..." class="project__img">
+
+                <div class="project__data">
+                    <h3 class="project__title">{{project.title}}</h3>
+                    <p class="project__description">
+                        {{project.description}}
+                    </p>
+                    <a href="{{project.demo}}" target="_blank" class="button button--flex button--small project__button">
+                        Demo
+                        <i class="uil uil-arrow-right button__icon"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="swiper-button-next">
+            <i class="uil uil-angle-right-b swiper-project-icon"></i>
+        </div>
+        <div class="swiper-button-prev">
+            <i class="uil uil-angle-left-b swiper-project-icon"></i>
+        </div>
+        <div class="swiper-pagination"></div>
+
+    </div>
+</section>
