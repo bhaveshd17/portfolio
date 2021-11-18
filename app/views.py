@@ -12,22 +12,22 @@ def home_view(request, *args, **kwargs):
 
 def send_msg_email(request, *args, **kwargs):
     status = 200
-    try:
-        email_subject="Message From Bhavesh's Portfolio"
-        email_body=render_to_string("mails/bhaveshmail.html",{
-            "name": request.POST.get("name"),
-            "msg": request.POST.get("msg")
-        })
+    # try:
+    email_subject="Message From Bhavesh's Portfolio"
+    email_body=render_to_string("mails/bhaveshmail.html",{
+        "name": request.POST.get("name"),
+        "msg": request.POST.get("msg")
+    })
 
-        email=EmailMessage(subject=email_subject,body=email_body,
-        from_email=settings.EMAIL_HOST_USER,
-        to=[request.POST.get("email")],
-        cc=["bhaveshdhake8@gmail.com"]
-        )
-        
-        email.fail_silently = False
-        email.content_subtype = 'html'
-        email.send()
-    except:
-        status = 505
+    email=EmailMessage(subject=email_subject,body=email_body,
+    from_email=settings.EMAIL_HOST_USER,
+    to=[request.POST.get("email")],
+    cc=["bhaveshdhake8@gmail.com"]
+    )
+    
+    email.fail_silently = False
+    email.content_subtype = 'html'
+    email.send()
+    # except:
+        # status = 505
     return redirect('/', status=status)
