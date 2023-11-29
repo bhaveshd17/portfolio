@@ -926,7 +926,8 @@ img {
   }
 
   .about__buttons {
-    justify-content: initial;
+    display: flex;
+    justify-content: center;
   }
   .skills__container {
     grid-template-columns: repeat(2, 1fr);
